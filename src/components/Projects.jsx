@@ -1,6 +1,8 @@
 import React from 'react'
-import { useScrollReveal } from '../hooks/useScrollReveal'
 import { projects } from '../data/projects'
+import RevealSection from './RevealSection'
+import SectionTitle from './SectionTitle'
+import BulletList from './BulletList'
 import './Projects.css'
 
 function ExternalIcon() {
@@ -22,45 +24,35 @@ function GithubIcon() {
 }
 
 export default function Projects() {
-  const ref = useScrollReveal()
-
   return (
-    <section id="projects" className="section" aria-label="Projects">
-      <div ref={ref} className="reveal">
-        <h2 className="section-title" data-echo="Some Things I've Built">
-          Some Things I've Built
-        </h2>
-        <div className="projects-list">
-          {projects.map(project => (
-            <div key={project.id} className="project-card">
-              <div className="project-label">Featured Project</div>
-              <h3 className="project-title">{project.title}</h3>
-              <div className="project-desc">
-                <ul>
-                  {project.bullets.map((b, i) => (
-                    <li key={i}><span className="bullet-arrow" aria-hidden="true">▹</span>{b}</li>
-                  ))}
-                </ul>
-              </div>
-              <ul className="project-tech">
-                {project.tech.map(t => <li key={t}>{t}</li>)}
-              </ul>
-              <div className="project-links">
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                  <GithubIcon />
-                  <span>GitHub Repo</span>
-                </a>
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
-                    <ExternalIcon />
-                    <span>Live Demo</span>
-                  </a>
-                )}
-              </div>
+    <RevealSection id="projects" ariaLabel="Projects">
+      <SectionTitle text="Some Things I've Built" />
+      <div className="projects-list">
+        {projects.map(project => (
+          <div key={project.id} className="project-card">
+            <div className="project-label">Featured Project</div>
+            <h3 className="project-title">{project.title}</h3>
+            <div className="project-desc">
+              <BulletList items={project.bullets} />
             </div>
-          ))}
-        </div>
+            <ul className="project-tech">
+              {project.tech.map(t => <li key={t}>{t}</li>)}
+            </ul>
+            <div className="project-links">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
+                <GithubIcon />
+                <span>GitHub Repo</span>
+              </a>
+              {project.live && (
+                <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
+                  <ExternalIcon />
+                  <span>Live Demo</span>
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </RevealSection>
   )
 }

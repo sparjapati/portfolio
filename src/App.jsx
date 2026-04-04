@@ -1,5 +1,4 @@
 import Navbar from './components/Navbar'
-import SocialSidebar from './components/SocialSidebar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -18,7 +17,6 @@ function App() {
     <div className="app">
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <SocialSidebar />
       <main id="main-content">
         <Hero />
         <About />
