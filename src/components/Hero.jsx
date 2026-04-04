@@ -6,7 +6,7 @@ export default function Hero() {
   const typed = useTypewriter('I build scalable backend systems.')
 
   return (
-    <section className="hero" id="hero">
+    <section className="hero" id="hero" aria-label="Introduction">
       <div className="hero-content">
         <p className="hero-greeting">Hi, my name is</p>
         <h1 className="hero-name">Sanjay</h1>

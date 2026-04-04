@@ -27,4 +27,9 @@ describe('About', () => {
     render(<About />)
     expect(screen.getAllByRole('heading', { level: 4 })).toHaveLength(3)
   })
+
+  it('renders section title with ghost echo attribute', () => {
+    render(<About />)
+    expect(screen.getByText('About Me')).toHaveAttribute('data-echo', 'About Me')
+  })
 })

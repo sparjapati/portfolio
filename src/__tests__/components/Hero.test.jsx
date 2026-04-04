@@ -27,4 +27,9 @@ describe('Hero', () => {
     render(<Hero />)
     expect(screen.getByLabelText('GitHub profile')).toHaveAttribute('href', 'https://github.com/sparjapati')
   })
+
+  it('renders LinkedIn social link', () => {
+    render(<Hero />)
+    expect(screen.getByLabelText('LinkedIn profile')).toHaveAttribute('href', 'https://linkedin.com/in/sparjapati')
+  })
 })

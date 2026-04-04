@@ -7,7 +7,7 @@ export default function About() {
   const ref = useScrollReveal()
 
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" aria-label="About Me">
       <div ref={ref} className="reveal">
         <h2 className="section-title" data-echo="About Me">About Me</h2>
         <div className="about-content">
@@ -20,7 +20,7 @@ export default function About() {
           </p>
           <div className="education">
             <h3 className="education-title">
-              <span className="slash">/</span> Education History
+              <span className="slash" aria-hidden="true">/</span> Education History
             </h3>
             <div className="edu-list">
               {education.map(edu => (

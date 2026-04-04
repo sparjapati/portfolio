@@ -67,3 +67,12 @@
   color: var(--accent);
   transform: translateY(-3px);
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 20px;
+  }
+  .hero-bio {
+    max-width: 100%;
+  }
+}
