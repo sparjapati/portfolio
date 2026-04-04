@@ -48,16 +48,16 @@
   color: var(--accent);
 }
 
-.resume-btn {
-  border: 1px solid var(--accent) !important;
-  color: var(--accent) !important;
+.nav-links a.resume-btn {
+  border: 1px solid var(--accent);
+  color: var(--accent);
   padding: 8px 16px;
   border-radius: 4px;
-  transition: var(--transition) !important;
+  transition: var(--transition);
 }
 
-.resume-btn:hover {
-  background: var(--accent-dim) !important;
+.nav-links a.resume-btn:hover {
+  background: var(--accent-dim);
 }
 
 .hamburger {

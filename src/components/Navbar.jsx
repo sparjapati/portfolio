@@ -9,14 +9,21 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleKey = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [menuOpen])
 
   const handleLinkClick = () => setMenuOpen(false)
 
   return (
-    <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
+    <nav aria-label="Primary" className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-inner">
         <span className="nav-logo">&lt;Sanjay /&gt;</span>
         <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
@@ -33,6 +40,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="resume-btn"
+              aria-label="Resume (opens in new tab)"
             >
               RESUME
             </a>
@@ -41,6 +49,7 @@ export default function Navbar() {
         <button
           className="hamburger"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
           onClick={() => setMenuOpen(o => !o)}
         >
           <span /><span /><span />
