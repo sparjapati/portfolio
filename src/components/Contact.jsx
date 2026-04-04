@@ -33,36 +33,39 @@ export default function Contact() {
           to say hi, I'll get back to you!
         </p>
         {sent ? (
-          <p className="contact-success">Opening your email client...</p>
+          <p className="contact-success" role="status">Opening your email client...</p>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             {error && <p className="form-error" role="alert">{error}</p>}
+            <label htmlFor="contact-name" className="sr-only">Your Name</label>
             <input
+              id="contact-name"
               type="text"
               name="name"
               placeholder="Your Name"
               value={form.name}
               onChange={handleChange}
               className="form-input"
-              aria-label="Your name"
             />
+            <label htmlFor="contact-email" className="sr-only">Your Email</label>
             <input
+              id="contact-email"
               type="email"
               name="email"
               placeholder="Your Email"
               value={form.email}
               onChange={handleChange}
               className="form-input"
-              aria-label="Your email"
             />
+            <label htmlFor="contact-message" className="sr-only">Your Message</label>
             <textarea
+              id="contact-message"
               name="message"
               placeholder="Your Message"
               value={form.message}
               onChange={handleChange}
               className="form-input"
               rows={5}
-              aria-label="Your message"
             />
             <button type="submit" className="form-submit">Send Message</button>
           </form>

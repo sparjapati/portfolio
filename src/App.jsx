@@ -12,9 +12,10 @@ import './App.css'
 function App() {
   return (
     <div className="app">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
       <SocialSidebar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />

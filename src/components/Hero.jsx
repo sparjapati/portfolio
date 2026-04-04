@@ -10,8 +10,8 @@ export default function Hero() {
       <div className="hero-content">
         <p className="hero-greeting">Hi, my name is</p>
         <h1 className="hero-name">Sanjay</h1>
-        <h2 className="hero-tagline">
-          {typed}<span className="cursor" aria-hidden="true">|</span>
+        <h2 className="hero-tagline" aria-label="I build scalable backend systems.">
+          <span aria-hidden="true">{typed}<span className="cursor" aria-hidden="true">|</span></span>
         </h2>
         <p className="hero-bio">
           Backend-focused Software Engineer with experience building fintech systems at scale.
