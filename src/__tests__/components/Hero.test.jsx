@@ -32,4 +32,9 @@ describe('Hero', () => {
     render(<Hero />)
     expect(screen.getByLabelText('LinkedIn profile')).toHaveAttribute('href', 'https://linkedin.com/in/sparjapati')
   })
+
+  it('renders open to opportunities badge', () => {
+    render(<Hero />)
+    expect(screen.getByText(/Open to new opportunities/i)).toBeInTheDocument()
+  })
 })
