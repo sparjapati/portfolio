@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTypewriter } from '../hooks/useTypewriter'
+import { LINKS } from '../data/links'
 import './Hero.css'
 
 export default function Hero() {
@@ -23,7 +24,7 @@ export default function Hero() {
         </p>
         <div className="hero-links">
           <a
-            href="https://github.com/sparjapati"
+            href={LINKS.github}
             aria-label="GitHub profile"
             target="_blank"
             rel="noopener noreferrer"
@@ -34,7 +35,7 @@ export default function Hero() {
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/sparjapati"
+            href={LINKS.linkedin}
             aria-label="LinkedIn profile"
             target="_blank"
             rel="noopener noreferrer"
@@ -47,7 +48,7 @@ export default function Hero() {
             </svg>
           </a>
           <a
-            href="https://x.com/_sparjapati_"
+            href={LINKS.twitter}
             aria-label="X profile"
             target="_blank"
             rel="noopener noreferrer"

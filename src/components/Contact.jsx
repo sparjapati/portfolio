@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import RevealSection from './RevealSection'
+import { LINKS } from '../data/links'
 import './Contact.css'
 
 export default function Contact() {
@@ -20,12 +21,12 @@ export default function Contact() {
       setError('Please fill in all fields.')
       return
     }
-    window.location.href = `mailto:parjapatsanjay1999@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${encodeURIComponent(form.email)}`
+    window.location.href = `mailto:${LINKS.email}?subject=Portfolio Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${encodeURIComponent(form.email)}`
     setSent(true)
   }
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('parjapatsanjay1999@gmail.com').then(() => {
+    navigator.clipboard.writeText(LINKS.email).then(() => {
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
       setCopied(true)
       copyTimerRef.current = setTimeout(() => setCopied(false), 1500)
@@ -47,7 +48,7 @@ export default function Contact() {
         to say hi, I'll get back to you!
       </p>
       <div className="contact-email-row">
-        <span className="contact-email-display">parjapatsanjay1999@gmail.com</span>
+        <span className="contact-email-display">{LINKS.email}</span>
         <button
           type="button"
           className="copy-email-btn"

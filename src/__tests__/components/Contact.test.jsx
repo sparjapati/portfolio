@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { vi } from 'vitest'
 import Contact from '../../components/Contact'
+import { LINKS } from '../../data/links'
 
 vi.mock('../../hooks/useScrollReveal', () => ({
   useScrollReveal: () => ({ current: null }),
@@ -51,7 +52,7 @@ describe('Contact', () => {
   it('calls clipboard.writeText with correct email on copy click', async () => {
     render(<Contact />)
     fireEvent.click(screen.getByRole('button', { name: /copy email/i }))
-    expect(navigator.clipboard.writeText).toHaveBeenCalledWith('parjapatsanjay1999@gmail.com')
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(LINKS.email)
   })
 
   it('shows Copied! feedback after clicking copy button', async () => {

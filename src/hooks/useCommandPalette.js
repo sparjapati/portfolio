@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { LINKS } from '../data/links'
 
 function scrollToSection(id) {
   const el = document.getElementById(id)
@@ -17,12 +18,12 @@ export function useCommandPalette({ toggleTheme, showToast }) {
     { label: 'Projects', action: () => scrollToSection('projects') },
     { label: 'Experience', action: () => scrollToSection('experience') },
     { label: 'Contact', action: () => scrollToSection('contact') },
-    { label: 'GitHub', action: () => window.open('https://github.com/sparjapati', '_blank') },
-    { label: 'LinkedIn', action: () => window.open('https://linkedin.com/in/sparjapati', '_blank') },
-    { label: 'X / Twitter', action: () => window.open('https://x.com/_sparjapati_', '_blank') },
+    { label: 'GitHub', action: () => window.open(LINKS.github, '_blank') },
+    { label: 'LinkedIn', action: () => window.open(LINKS.linkedin, '_blank') },
+    { label: 'X / Twitter', action: () => window.open(LINKS.twitter, '_blank') },
     {
       label: 'Copy email',
-      action: () => navigator.clipboard.writeText('parjapatsanjay1999@gmail.com')
+      action: () => navigator.clipboard.writeText(LINKS.email)
         .then(() => showToast?.({ message: 'Email copied!', type: 'success' }))
         .catch(() => showToast?.({ message: 'Failed to copy', type: 'error' })),
     },

@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { vi } from 'vitest'
 import Hero from '../../components/Hero'
+import { LINKS } from '../../data/links'
 
 vi.mock('../../hooks/useTypewriter', () => ({
   useTypewriter: () => 'I build scalable backend systems.',
@@ -25,12 +26,12 @@ describe('Hero', () => {
 
   it('renders GitHub social link', () => {
     render(<Hero />)
-    expect(screen.getByLabelText('GitHub profile')).toHaveAttribute('href', 'https://github.com/sparjapati')
+    expect(screen.getByLabelText('GitHub profile')).toHaveAttribute('href', LINKS.github)
   })
 
   it('renders LinkedIn social link', () => {
     render(<Hero />)
-    expect(screen.getByLabelText('LinkedIn profile')).toHaveAttribute('href', 'https://linkedin.com/in/sparjapati')
+    expect(screen.getByLabelText('LinkedIn profile')).toHaveAttribute('href', LINKS.linkedin)
   })
 
   it('renders open to opportunities badge', () => {
