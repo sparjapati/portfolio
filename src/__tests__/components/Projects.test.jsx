@@ -7,6 +7,10 @@ vi.mock('../../hooks/useScrollReveal', () => ({
   useScrollReveal: () => ({ current: null }),
 }))
 
+vi.mock('../../hooks/useTilt', () => ({
+  useTilt: () => ({ ref: { current: null }, style: {} }),
+}))
+
 describe('Projects', () => {
   it('renders section heading', () => {
     render(<Projects />)

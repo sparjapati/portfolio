@@ -1,5 +1,6 @@
 import React from 'react'
 import { projects } from '../data/projects'
+import { useTilt } from '../hooks/useTilt'
 import RevealSection from './RevealSection'
 import SectionTitle from './SectionTitle'
 import BulletList from './BulletList'
@@ -23,34 +24,41 @@ function GithubIcon() {
   )
 }
 
+function ProjectCard({ project }) {
+  const { ref, style } = useTilt()
+  return (
+    <div className="project-card" ref={ref} style={style}>
+      <div className="project-label">Featured Project</div>
+      <h3 className="project-title">{project.title}</h3>
+      <div className="project-desc">
+        <BulletList items={project.bullets} />
+      </div>
+      <ul className="project-tech">
+        {project.tech.map(t => <li key={t}>{t}</li>)}
+      </ul>
+      <div className="project-links">
+        <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
+          <GithubIcon />
+          <span>GitHub Repo</span>
+        </a>
+        {project.live && (
+          <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
+            <ExternalIcon />
+            <span>Live Demo</span>
+          </a>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function Projects() {
   return (
     <RevealSection id="projects" ariaLabel="Projects">
       <SectionTitle text="Some Things I've Built" />
       <div className="projects-list">
         {projects.map(project => (
-          <div key={project.id} className="project-card">
-            <div className="project-label">Featured Project</div>
-            <h3 className="project-title">{project.title}</h3>
-            <div className="project-desc">
-              <BulletList items={project.bullets} />
-            </div>
-            <ul className="project-tech">
-              {project.tech.map(t => <li key={t}>{t}</li>)}
-            </ul>
-            <div className="project-links">
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                <GithubIcon />
-                <span>GitHub Repo</span>
-              </a>
-              {project.live && (
-                <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
-                  <ExternalIcon />
-                  <span>Live Demo</span>
-                </a>
-              )}
-            </div>
-          </div>
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </RevealSection>

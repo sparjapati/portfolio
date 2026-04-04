@@ -11,12 +11,13 @@
   border: 1px solid rgba(100, 255, 218, 0.1);
   border-radius: 8px;
   padding: 2rem;
-  transition: var(--transition);
+  transition: transform 0.4s ease, box-shadow var(--transition), border-color var(--transition), background var(--transition);
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
   box-shadow: 0 10px 30px -10px rgba(100, 255, 218, 0.1);
 }
 
