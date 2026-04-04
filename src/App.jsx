@@ -7,13 +7,17 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ThemeToggle from './components/ThemeToggle'
+import { useTheme } from './hooks/useTheme'
 import './App.css'
 
 function App() {
+  const { theme, toggleTheme } = useTheme()
+
   return (
     <div className="app">
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <SocialSidebar />
       <main id="main-content">
         <Hero />
@@ -24,6 +28,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
     </div>
   )
 }

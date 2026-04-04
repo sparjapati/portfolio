@@ -107,3 +107,31 @@
     font-size: 1rem;
   }
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 4px;
+  transition: var(--transition);
+}
+
+.theme-toggle-nav:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-nav {
+    display: none;
+  }
+}
