@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import RevealSection from './RevealSection'
 import './Contact.css'
 
@@ -7,6 +7,7 @@ export default function Contact() {
   const [error, setError] = useState('')
   const [sent, setSent] = useState(false)
   const [copied, setCopied] = useState(false)
+  const copyTimerRef = useRef(null)
 
   const handleChange = e => {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }))
@@ -24,10 +25,18 @@ export default function Contact() {
   }
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('parjapatsanjay1999@gmail.com')
-    setCopied(true)
-    setTimeout(() => setCopied(false), 1500)
+    navigator.clipboard.writeText('parjapatsanjay1999@gmail.com').then(() => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+      setCopied(true)
+      copyTimerRef.current = setTimeout(() => setCopied(false), 1500)
+    })
   }
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+    }
+  }, [])
 
   return (
     <RevealSection id="contact" ariaLabel="Contact" className="contact-section">

@@ -47,4 +47,17 @@ describe('Contact', () => {
     render(<Contact />)
     expect(screen.getByRole('button', { name: /copy email/i })).toBeInTheDocument()
   })
+
+  it('calls clipboard.writeText with correct email on copy click', async () => {
+    render(<Contact />)
+    fireEvent.click(screen.getByRole('button', { name: /copy email/i }))
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith('parjapatsanjay1999@gmail.com')
+  })
+
+  it('shows Copied! feedback after clicking copy button', async () => {
+    render(<Contact />)
+    fireEvent.click(screen.getByRole('button', { name: /copy email/i }))
+    // After click, copied state becomes true → label changes to "Copied!"
+    expect(await screen.findByText('Copied!')).toBeInTheDocument()
+  })
 })
