@@ -7,6 +7,12 @@ vi.mock('../../hooks/useScrollReveal', () => ({
   useScrollReveal: () => ({ current: null }),
 }))
 
+beforeEach(() => {
+  Object.assign(navigator, {
+    clipboard: { writeText: vi.fn().mockResolvedValue(undefined) },
+  })
+})
+
 describe('Contact', () => {
   it('renders Get In Touch heading', () => {
     render(<Contact />)
@@ -35,5 +41,10 @@ describe('Contact', () => {
     render(<Contact />)
     fireEvent.click(screen.getByRole('button', { name: /Send Message/i }))
     expect(screen.getByRole('alert')).toBeInTheDocument()
+  })
+
+  it('renders copy email button', () => {
+    render(<Contact />)
+    expect(screen.getByRole('button', { name: /copy email/i })).toBeInTheDocument()
   })
 })

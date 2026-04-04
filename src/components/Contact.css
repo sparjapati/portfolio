@@ -82,3 +82,40 @@
   font-size: 0.9rem;
   color: var(--accent);
 }
+
+.contact-email-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.contact-email-display {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  transition: var(--transition);
+}
+
+.copy-email-btn:hover {
+  background: var(--accent-dim);
+}
+
+.copy-btn-label {
+  line-height: 1;
+}
