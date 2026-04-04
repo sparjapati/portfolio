@@ -35,6 +35,7 @@ describe('Hero', () => {
 
   it('renders open to opportunities badge', () => {
     render(<Hero />)
-    expect(screen.getByText(/Open to new opportunities/i)).toBeInTheDocument()
+    expect(screen.getByRole('status')).toBeInTheDocument()
+    expect(screen.getByRole('status')).toHaveTextContent(/Open to new opportunities/i)
   })
 })
