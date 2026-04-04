@@ -19,7 +19,12 @@ export default function CommandPalette({
   if (!isOpen) return null
 
   function handleKeyDown(e) {
-    if (e.key === 'Escape') {
+    if (e.key === 'Tab') {
+      e.preventDefault()
+      // Focus stays on the input — Tab is trapped inside the modal
+      if (inputRef.current) inputRef.current.focus()
+      return
+    } else if (e.key === 'Escape') {
       close()
     } else if (e.key === 'ArrowDown') {
       e.preventDefault()

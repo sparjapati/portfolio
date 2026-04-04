@@ -60,4 +60,13 @@ describe('CommandPalette', () => {
     expect(action).toHaveBeenCalled()
     expect(close).toHaveBeenCalled()
   })
+
+  it('traps Tab focus inside the modal', () => {
+    const close = vi.fn()
+    render(<CommandPalette {...baseProps} close={close} />)
+    const dialog = screen.getByRole('dialog')
+    fireEvent.keyDown(dialog, { key: 'Tab' })
+    // close should NOT have been called — tab does not close
+    expect(close).not.toHaveBeenCalled()
+  })
 })
