@@ -7,7 +7,7 @@ export default function Experience() {
   const ref = useScrollReveal()
 
   return (
-    <section id="experience" className="section" aria-label="Experience">
+    <section id="experience" className="section" aria-label="Experiences">
       <div ref={ref} className="reveal">
         <h2 className="section-title" data-echo="Experiences">Experiences</h2>
         <div className="timeline">

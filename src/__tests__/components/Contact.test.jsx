@@ -30,4 +30,10 @@ describe('Contact', () => {
     fireEvent.click(screen.getByRole('button', { name: /Send Message/i }))
     expect(screen.getByText(/Please fill in all fields/i)).toBeInTheDocument()
   })
+
+  it('error message has role alert for screen readers', () => {
+    render(<Contact />)
+    fireEvent.click(screen.getByRole('button', { name: /Send Message/i }))
+    expect(screen.getByRole('alert')).toBeInTheDocument()
+  })
 })
