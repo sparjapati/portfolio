@@ -42,6 +42,18 @@ export default function Hero() {
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
+          <a
+            href="https://twitter.com/_sparjapati_"
+            aria-label="Twitter profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-icon-link"
+          >
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 4l16 16M4 20L20 4" />
+              <path d="M20 4h-5l-4.5 5.5L4 4H1l7.5 9.5L1 20h3l5.5-6.5L17 20h3l-7.5-9.5L21 4h-1z" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
