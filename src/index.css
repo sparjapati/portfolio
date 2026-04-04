@@ -19,6 +19,17 @@
   --nav-height: 70px;
 }
 
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-card: #f0f4f8;
+  --accent: #0a9e7e;
+  --accent-dim: rgba(10, 158, 126, 0.1);
+  --text-primary: #0a0f1e;
+  --text-secondary: #4a5568;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  color-scheme: light;
+}
+
 html {
   scroll-behavior: smooth;
 }
