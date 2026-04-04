@@ -19,6 +19,8 @@ export function useScrollReveal(options = {}) {
 
     observer.observe(el)
     return () => observer.disconnect()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // options intentionally excluded: observer is set up once on mount only
   }, [])
 
   return ref

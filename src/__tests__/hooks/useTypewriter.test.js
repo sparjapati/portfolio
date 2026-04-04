@@ -21,8 +21,10 @@ describe('useTypewriter', () => {
 
   it('stops at full string length', () => {
     const { result } = renderHook(() => useTypewriter('Hi', 80))
-    act(() => vi.advanceTimersByTime(80))
-    act(() => vi.advanceTimersByTime(80))
+    // Advance well past what would be needed for 2 chars
+    for (let i = 0; i < 10; i++) {
+      act(() => vi.advanceTimersByTime(80))
+    }
     expect(result.current).toBe('Hi')
   })
 })
