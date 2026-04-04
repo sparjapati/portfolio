@@ -36,4 +36,11 @@ describe('Projects', () => {
     render(<Projects />)
     expect(screen.getByText("Some Things I've Built")).toHaveAttribute('data-echo', "Some Things I've Built")
   })
+
+  it('renders project cards with tilt-compatible structure', () => {
+    render(<Projects />)
+    // Each card is rendered — useTilt mock returns empty style, cards should still render
+    const cards = document.querySelectorAll('.project-card')
+    expect(cards.length).toBeGreaterThan(0)
+  })
 })
