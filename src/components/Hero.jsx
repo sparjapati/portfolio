@@ -43,8 +43,8 @@ export default function Hero() {
             </svg>
           </a>
           <a
-            href="https://twitter.com/_sparjapati_"
-            aria-label="Twitter profile"
+            href="https://x.com/_sparjapati_"
+            aria-label="X profile"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-icon-link"
