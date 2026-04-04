@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0f1e"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(100,255,218,0.05)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(100,255,218,0.05)" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="rgba(100,255,218,0.05)" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="rgba(100,255,218,0.05)" stroke-width="1"/>
+  <rect x="80" y="80" width="60" height="4" fill="#64ffda" rx="2"/>
+  <rect x="80" y="80" width="4" height="60" fill="#64ffda" rx="2"/>
+  <rect x="1060" y="546" width="60" height="4" fill="#64ffda" rx="2"/>
+  <rect x="1116" y="490" width="4" height="60" fill="#64ffda" rx="2"/>
+  <text x="100" y="290" font-family="'Courier New', monospace" font-size="96" font-weight="700" fill="#ccd6f6">Sanjay</text>
+  <text x="100" y="370" font-family="'Courier New', monospace" font-size="40" fill="#64ffda">Software Engineer</text>
+  <text x="100" y="430" font-family="'Courier New', monospace" font-size="24" fill="#8892b0">Backend · Fintech · Scale</text>
+  <text x="100" y="540" font-family="'Courier New', monospace" font-size="20" fill="rgba(136,146,176,0.6)">YOUR_DOMAIN_HERE</text>
+</svg>

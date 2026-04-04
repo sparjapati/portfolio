@@ -29,5 +29,6 @@ dist-ssr
 portfolio-reference.png
 .claude/
 
-docs/* 
+docs/*
 *.png
+!public/
