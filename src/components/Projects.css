@@ -31,6 +31,7 @@
   font-size: 1.25rem;
   color: var(--text-primary);
   margin-bottom: 1.25rem;
+  cursor: default;
 }
 
 .project-desc ul {
