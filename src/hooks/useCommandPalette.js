@@ -5,7 +5,7 @@ function scrollToSection(id) {
   if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 
-export function useCommandPalette({ toggleTheme }) {
+export function useCommandPalette({ toggleTheme, showToast }) {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -20,7 +20,12 @@ export function useCommandPalette({ toggleTheme }) {
     { label: 'GitHub', action: () => window.open('https://github.com/sparjapati', '_blank') },
     { label: 'LinkedIn', action: () => window.open('https://linkedin.com/in/sparjapati', '_blank') },
     { label: 'X / Twitter', action: () => window.open('https://x.com/_sparjapati_', '_blank') },
-    { label: 'Copy email', action: () => navigator.clipboard.writeText('parjapatsanjay1999@gmail.com') },
+    {
+      label: 'Copy email',
+      action: () => navigator.clipboard.writeText('parjapatsanjay1999@gmail.com')
+        .then(() => showToast?.({ message: 'Email copied!', type: 'success' }))
+        .catch(() => showToast?.({ message: 'Failed to copy', type: 'error' })),
+    },
     { label: 'Toggle theme', action: toggleTheme },
   ]
 

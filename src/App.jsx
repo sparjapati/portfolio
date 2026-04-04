@@ -8,13 +8,24 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
 import CommandPalette from './components/CommandPalette'
+import Toast from './components/Toast'
 import { useTheme } from './hooks/useTheme'
 import { useCommandPalette } from './hooks/useCommandPalette'
+import { useState, useRef } from 'react'
 import './App.css'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
-  const palette = useCommandPalette({ toggleTheme })
+  const [toast, setToast] = useState(null)
+  const toastTimerRef = useRef(null)
+
+  function showToast({ message, type = 'success' }) {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current)
+    setToast({ message, type })
+    toastTimerRef.current = setTimeout(() => setToast(null), 2000)
+  }
+
+  const palette = useCommandPalette({ toggleTheme, showToast })
 
   return (
     <div className="app">
@@ -30,6 +41,7 @@ function App() {
       </main>
       <Footer />
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      <Toast message={toast?.message} type={toast?.type} />
       <CommandPalette
         isOpen={palette.isOpen}
         close={palette.close}
