@@ -17,6 +17,8 @@
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --max-width: 1000px;
   --nav-height: 70px;
+  --ghost-text: rgba(204, 214, 246, 0.06);
+  color-scheme: dark;
 }
 
 [data-theme="light"] {
@@ -27,6 +29,7 @@
   --text-primary: #0a0f1e;
   --text-secondary: #4a5568;
   --nav-bg: rgba(255, 255, 255, 0.85);
+  --ghost-text: rgba(10, 15, 30, 0.06);
   color-scheme: light;
 }
 
@@ -134,7 +137,7 @@ ul {
   position: absolute;
   font-size: 5rem;
   font-weight: 700;
-  color: rgba(204, 214, 246, 0.04);
+  color: var(--ghost-text);
   white-space: nowrap;
   z-index: -1;
   user-select: none;

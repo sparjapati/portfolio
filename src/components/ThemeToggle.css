@@ -20,7 +20,7 @@
   background: var(--accent-dim);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .theme-toggle-float {
     display: none;
   }
