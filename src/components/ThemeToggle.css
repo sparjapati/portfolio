@@ -1,0 +1,27 @@
+.theme-toggle-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--bg-card);
+  color: var(--accent);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle-float:hover {
+  background: var(--accent-dim);
+}
+
+@media (min-width: 769px) {
+  .theme-toggle-float {
+    display: none;
+  }
+}
