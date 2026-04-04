@@ -11,10 +11,17 @@ export default function CommandPalette({
   filteredCommands,
 }) {
   const inputRef = useRef(null)
+  const listRef = useRef(null)
 
   useEffect(() => {
     if (isOpen && inputRef.current) inputRef.current.focus()
   }, [isOpen])
+
+  useEffect(() => {
+    if (!listRef.current) return
+    const active = listRef.current.children[selectedIndex]
+    if (active?.scrollIntoView) active.scrollIntoView({ block: 'nearest' })
+  }, [selectedIndex])
 
   if (!isOpen) return null
 
@@ -64,7 +71,7 @@ export default function CommandPalette({
           onChange={e => { setQuery(e.target.value); setSelectedIndex(0) }}
           aria-label="Command search"
         />
-        <ul className="cp-list" role="listbox" aria-label="Commands">
+        <ul ref={listRef} className="cp-list" role="listbox" aria-label="Commands">
           {filteredCommands.map((cmd, i) => (
             <li
               key={cmd.label}
