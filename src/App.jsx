@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="app">
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} onOpenPalette={palette.open} />
       <main id="main-content">
         <Hero />
         <About />

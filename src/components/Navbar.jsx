@@ -27,7 +27,7 @@ const MoonIcon = () => (
   </svg>
 )
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({ theme, toggleTheme, onOpenPalette }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const hamburgerRef = useRef(null)
@@ -101,6 +101,16 @@ export default function Navbar({ theme, toggleTheme }) {
           </li>
         </ul>
         <div className="nav-actions">
+          {onOpenPalette && (
+            <button
+              className="cmd-hint"
+              onClick={onOpenPalette}
+              aria-label="Open command palette"
+            >
+              <span>Ctrl</span>
+              <span>K</span>
+            </button>
+          )}
           <button
             className="theme-toggle-nav"
             onClick={toggleTheme}
