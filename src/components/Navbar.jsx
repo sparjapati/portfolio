@@ -73,6 +73,10 @@ export default function Navbar({ theme, toggleTheme }) {
   const handleLinkClick = () => setMenuOpen(false)
 
   return (
+    <>
+      {menuOpen && (
+        <div className="nav-backdrop" onClick={() => setMenuOpen(false)} aria-hidden="true" />
+      )}
     <nav aria-label="Primary" className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-inner">
         <span className="nav-logo">&lt;Sanjay /&gt;</span>
@@ -116,5 +120,6 @@ export default function Navbar({ theme, toggleTheme }) {
         </div>
       </div>
     </nav>
+    </>
   )
 }

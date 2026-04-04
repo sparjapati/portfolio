@@ -114,6 +114,20 @@
   }
 }
 
+.nav-backdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 98;
+    background: transparent;
+  }
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
