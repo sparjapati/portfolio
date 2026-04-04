@@ -59,16 +59,15 @@ ul {
 
 /* Section layout utility */
 .section {
-  padding: 100px 0;
+  padding: 100px 25px;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-left: 25px;
-  padding-right: 25px;
 }
 
 /* Ghost heading utility */
 .section-title {
   position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
