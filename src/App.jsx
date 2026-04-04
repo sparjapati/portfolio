@@ -7,11 +7,14 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
+import CommandPalette from './components/CommandPalette'
 import { useTheme } from './hooks/useTheme'
+import { useCommandPalette } from './hooks/useCommandPalette'
 import './App.css'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
+  const palette = useCommandPalette({ toggleTheme })
 
   return (
     <div className="app">
@@ -27,6 +30,15 @@ function App() {
       </main>
       <Footer />
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      <CommandPalette
+        isOpen={palette.isOpen}
+        close={palette.close}
+        query={palette.query}
+        setQuery={palette.setQuery}
+        selectedIndex={palette.selectedIndex}
+        setSelectedIndex={palette.setSelectedIndex}
+        filteredCommands={palette.filteredCommands}
+      />
     </div>
   )
 }
