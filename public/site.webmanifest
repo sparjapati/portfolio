@@ -1,0 +1,17 @@
+{
+  "name": "Sanjay | Software Engineer",
+  "short_name": "Sanjay",
+  "description": "Backend-focused Software Engineer portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f1e",
+  "theme_color": "#64ffda",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

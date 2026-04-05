@@ -27,7 +27,7 @@ const MoonIcon = () => (
   </svg>
 )
 
-export default function Navbar({ theme, toggleTheme, onOpenPalette }) {
+export default function Navbar({ theme, toggleTheme, onOpenPalette, activeSection }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const hamburgerRef = useRef(null)
@@ -83,9 +83,13 @@ export default function Navbar({ theme, toggleTheme, onOpenPalette }) {
         <ul ref={navLinksRef} className={`nav-links${menuOpen ? ' open' : ''}`}>
           {NAV_LINKS.map(link => (
             <li key={link}>
-              <a href={`#${link.toLowerCase()}`} onClick={handleLinkClick}>
-                {link}
-              </a>
+              <a
+                  href={`#${link.toLowerCase()}`}
+                  onClick={handleLinkClick}
+                  className={activeSection === link.toLowerCase() ? 'active' : undefined}
+                >
+                  {link}
+                </a>
             </li>
           ))}
           <li>

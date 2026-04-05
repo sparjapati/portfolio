@@ -8,6 +8,10 @@ vi.mock('../../hooks/useTypewriter', () => ({
   useTypewriter: () => 'I build scalable backend systems.',
 }))
 
+vi.mock('../../hooks/useCursorSpotlight', () => ({
+  useCursorSpotlight: () => ({ ref: { current: null }, style: {} }),
+}))
+
 describe('Hero', () => {
   it('renders greeting', () => {
     render(<Hero />)

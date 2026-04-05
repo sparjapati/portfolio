@@ -1,13 +1,15 @@
 import React from 'react'
 import { useTypewriter } from '../hooks/useTypewriter'
+import { useCursorSpotlight } from '../hooks/useCursorSpotlight'
 import { LINKS } from '../data/links'
 import './Hero.css'
 
 export default function Hero() {
   const typed = useTypewriter('I build scalable backend systems.')
+  const { ref: spotlightRef, style: spotlightStyle } = useCursorSpotlight()
 
   return (
-    <section className="hero" id="hero" aria-label="Introduction">
+    <section className="hero" id="hero" aria-label="Introduction" ref={spotlightRef} style={spotlightStyle}>
       <div className="hero-content">
         <p className="hero-greeting">Hi, my name is</p>
         <h1 className="hero-name">Sanjay</h1>

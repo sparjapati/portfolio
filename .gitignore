@@ -32,3 +32,4 @@ portfolio-reference.png
 docs/*
 *.png
 !public/
+!public/*.png

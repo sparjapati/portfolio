@@ -45,4 +45,10 @@ describe('Navbar', () => {
     fireEvent.click(screen.getByLabelText('Switch to light mode'))
     expect(toggleTheme).toHaveBeenCalledTimes(1)
   })
+
+  it('marks active section link with active class', () => {
+    render(<Navbar theme="dark" toggleTheme={() => {}} activeSection="skills" />)
+    const skillsLink = screen.getByRole('link', { name: /skills/i })
+    expect(skillsLink).toHaveClass('active')
+  })
 })

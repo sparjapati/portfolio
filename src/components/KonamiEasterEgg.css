@@ -1,0 +1,98 @@
+.konami-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.konami-terminal {
+  width: 520px;
+  max-width: 90vw;
+  background: #0d1117;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+
+.konami-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1c1c1e;
+  padding: 0.6rem 1rem;
+}
+
+.konami-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.konami-dot--red { background: #ff5f57; }
+.konami-dot--yellow { background: #ffbd2e; }
+.konami-dot--green { background: #28c940; }
+
+.konami-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #8892b0;
+}
+
+.konami-close {
+  background: transparent;
+  border: none;
+  color: #8892b0;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 2px 4px;
+  line-height: 1;
+}
+
+.konami-close:hover {
+  color: var(--accent);
+}
+
+.konami-body {
+  padding: 1.5rem;
+  min-height: 180px;
+}
+
+.konami-line {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+  opacity: 0;
+  animation: terminal-appear 0.2s ease forwards;
+}
+
+@keyframes terminal-appear {
+  to { opacity: 1; }
+}
+
+.konami-cursor {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .konami-line {
+    animation: none;
+    opacity: 1;
+  }
+  .konami-cursor {
+    animation: none;
+  }
+}

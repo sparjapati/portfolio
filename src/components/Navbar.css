@@ -190,3 +190,24 @@
     display: none;
   }
 }
+
+.nav-links a:not(.resume-btn)::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:not(.resume-btn):hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-links a.active:not(.resume-btn)::after {
+  width: 100%;
+}
