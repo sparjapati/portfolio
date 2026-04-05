@@ -42,8 +42,8 @@ export default function CommandPalette({
     } else if (e.key === 'Enter') {
       const cmd = filteredCommands[selectedIndex]
       if (cmd) {
-        cmd.action()
         close()
+        cmd.action()
       }
     }
   }
@@ -78,7 +78,7 @@ export default function CommandPalette({
               role="option"
               aria-selected={i === selectedIndex}
               className={`cp-item${i === selectedIndex ? ' cp-item--active' : ''}`}
-              onClick={() => { cmd.action(); close() }}
+              onClick={() => { close(); cmd.action() }}
               onMouseEnter={() => setSelectedIndex(i)}
             >
               {cmd.label}
