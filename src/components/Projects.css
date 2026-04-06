@@ -11,9 +11,7 @@
   border: 1px solid rgba(100, 255, 218, 0.1);
   border-radius: 8px;
   padding: 2rem;
-  transition: transform 0.4s ease, box-shadow var(--transition), border-color var(--transition), background var(--transition);
-  transform-style: preserve-3d;
-  will-change: transform;
+  transition: box-shadow var(--transition), border-color var(--transition);
 }
 
 .project-card:hover {

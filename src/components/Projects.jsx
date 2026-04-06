@@ -1,6 +1,5 @@
 import React from 'react'
 import { projects } from '../data/projects'
-import { useTilt } from '../hooks/useTilt'
 import RevealSection from './RevealSection'
 import SectionTitle from './SectionTitle'
 import BulletList from './BulletList'
@@ -25,9 +24,8 @@ function GithubIcon() {
 }
 
 function ProjectCard({ project }) {
-  const { ref, style } = useTilt()
   return (
-    <div className="project-card" ref={ref} style={style}>
+    <div className="project-card">
       <div className="project-label">Featured Project</div>
       <h3 className="project-title">{project.title}</h3>
       <div className="project-desc">
