@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import RevealSection from './RevealSection'
+import CopiableText from './CopiableText'
+import CopyButton from './CopyButton'
 import { LINKS } from '../data/links'
 import './Contact.css'
 
@@ -7,8 +9,6 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [error, setError] = useState('')
   const [sent, setSent] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const copyTimerRef = useRef(null)
 
   const handleChange = e => {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }))
@@ -25,20 +25,6 @@ export default function Contact() {
     setSent(true)
   }
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(LINKS.email).then(() => {
-      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
-      setCopied(true)
-      copyTimerRef.current = setTimeout(() => setCopied(false), 1500)
-    })
-  }
-
-  useEffect(() => {
-    return () => {
-      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
-    }
-  }, [])
-
   return (
     <RevealSection id="contact" ariaLabel="Contact" className="contact-section">
       <p className="contact-overline">What's Next?</p>
@@ -47,27 +33,12 @@ export default function Contact() {
         I'm currently open to new opportunities. Whether you have a question or just want
         to say hi, I'll get back to you!
       </p>
-      <div className="contact-email-row">
-        <span className="contact-email-display">{LINKS.email}</span>
-        <button
-          type="button"
-          className="copy-email-btn"
-          onClick={handleCopyEmail}
-          aria-label="Copy email"
-        >
-          {copied ? (
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          ) : (
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-            </svg>
-          )}
-          <span className="copy-btn-label">{copied ? 'Copied!' : 'Copy'}</span>
-        </button>
-      </div>
+      <CopiableText text={LINKS.email}>
+        <div className="contact-email-row">
+          <span className="contact-email-display">{LINKS.email}</span>
+          <CopyButton ariaLabel="Copy email" />
+        </div>
+      </CopiableText>
       {sent ? (
         <p className="contact-success" role="status">Opening your email client...</p>
       ) : (
