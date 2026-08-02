@@ -1,0 +1,19 @@
+# Sanjay Verma
+
+> Personal portfolio of Sanjay Verma, Software Engineer II at Oxyzo Financial Services, specializing in backend systems and fintech infrastructure. NIT Kurukshetra CS graduate, open to new opportunities.
+
+Single-page React application covering background, work experience, technical skills, projects, and contact details. All content lives on one page at the URLs below via section anchors.
+
+## Sections
+
+- [About](https://sanjay-verma.in/#about): Background and education
+- [Experience](https://sanjay-verma.in/#experience): Work history at Oxyzo Financial Services
+- [Skills](https://sanjay-verma.in/#skills): Technical skills and competencies
+- [Projects](https://sanjay-verma.in/#projects): Selected engineering projects
+- [Contact](https://sanjay-verma.in/#contact): Contact form and email
+
+## Links
+
+- [GitHub](https://github.com/sparjapati)
+- [LinkedIn](https://linkedin.com/in/sparjapati)
+- [X / Twitter](https://x.com/_sparjapati_)
