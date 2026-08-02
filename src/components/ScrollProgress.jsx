@@ -23,7 +23,7 @@ export default function ScrollProgress() {
       aria-valuemin={0}
       aria-valuemax={100}
       className="scroll-progress"
-      style={{ width: `${progress}%` }}
+      style={{ transform: `scaleX(${progress / 100})` }}
     />
   )
 }
