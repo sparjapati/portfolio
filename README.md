@@ -26,6 +26,19 @@ Personal portfolio of **Sanjay Verma** — Software Engineer II at Oxyzo Financi
 
 ---
 
+## Lighthouse Scores
+
+Mobile, via [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-sanjay-verma-in):
+
+| Category | Score |
+|---|---|
+| Performance | 91 |
+| Accessibility | 96 |
+| Best Practices | 100 |
+| SEO | 100 |
+
+---
+
 ## Tech Stack
 
 | Layer | Choice |
