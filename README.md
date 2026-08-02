@@ -21,7 +21,7 @@ Personal portfolio of **Sanjay Verma** — Software Engineer II at Oxyzo Financi
 - **Scroll reveal** — sections fade in on entry via IntersectionObserver
 - **Konami code easter egg** — `↑↑↓↓←→←→BA`
 - **Fully accessible** — semantic HTML, ARIA roles, keyboard navigation, focus traps, `prefers-reduced-motion` support
-- **SEO** — Open Graph, Twitter Card, JSON-LD Person schema, canonical URL, sitemap, robots.txt
+- **SEO** — Open Graph, Twitter Card, JSON-LD Person schema, canonical URL, sitemap, robots.txt; indexing and search performance tracked via Google Search Console
 
 ---
 
