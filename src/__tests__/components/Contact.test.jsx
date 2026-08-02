@@ -2,7 +2,6 @@ import React from 'react'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { vi } from 'vitest'
 import Contact from '../../components/Contact'
-import { LINKS } from '../../data/links'
 
 vi.mock('../../hooks/useScrollReveal', () => ({
   useScrollReveal: () => ({ current: null }),
@@ -11,12 +10,6 @@ vi.mock('../../hooks/useScrollReveal', () => ({
 vi.mock('@emailjs/browser', () => ({
   default: { send: vi.fn().mockResolvedValue({}) },
 }))
-
-beforeEach(() => {
-  Object.assign(navigator, {
-    clipboard: { writeText: vi.fn().mockResolvedValue(undefined) },
-  })
-})
 
 import emailjs from '@emailjs/browser'
 
@@ -48,23 +41,6 @@ describe('Contact', () => {
     render(<Contact />)
     fireEvent.click(screen.getByRole('button', { name: /Send Message/i }))
     expect(screen.getByRole('alert')).toBeInTheDocument()
-  })
-
-  it('renders copy email button', () => {
-    render(<Contact />)
-    expect(screen.getByRole('button', { name: /copy email/i })).toBeInTheDocument()
-  })
-
-  it('calls clipboard.writeText with correct email on copy click', async () => {
-    render(<Contact />)
-    fireEvent.click(screen.getByRole('button', { name: /copy email/i }))
-    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(LINKS.email)
-  })
-
-  it('shows Copied! feedback after clicking copy button', async () => {
-    render(<Contact />)
-    fireEvent.click(screen.getByRole('button', { name: /copy email/i }))
-    expect(await screen.findByText('Copied!')).toBeInTheDocument()
   })
 
   it('calls emailjs.send with form values on submit', async () => {

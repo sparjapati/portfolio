@@ -6,7 +6,7 @@ function scrollToSection(id) {
   if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 
-export function useCommandPalette({ toggleTheme, showToast }) {
+export function useCommandPalette({ toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -21,12 +21,6 @@ export function useCommandPalette({ toggleTheme, showToast }) {
     { label: 'GitHub', action: () => window.open(LINKS.github, '_blank') },
     { label: 'LinkedIn', action: () => window.open(LINKS.linkedin, '_blank') },
     { label: 'X / Twitter', action: () => window.open(LINKS.twitter, '_blank') },
-    {
-      label: 'Copy email',
-      action: () => navigator.clipboard.writeText(LINKS.email)
-        .then(() => showToast?.({ message: 'Email copied!', type: 'success' }))
-        .catch(() => showToast?.({ message: 'Failed to copy', type: 'error' })),
-    },
     { label: 'Toggle theme', action: toggleTheme },
   ]
 

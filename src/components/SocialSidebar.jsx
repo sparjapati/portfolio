@@ -23,16 +23,6 @@ const LINKS = [
       </svg>
     ),
   },
-  {
-    label: 'Email',
-    href: `mailto:${CONTACT_LINKS.email}`,
-    icon: (
-      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-        <polyline points="22,6 12,13 2,6" />
-      </svg>
-    ),
-  },
 ]
 
 export default function SocialSidebar() {
@@ -41,12 +31,7 @@ export default function SocialSidebar() {
       <ul>
         {LINKS.map(({ label, href, icon }) => (
           <li key={label}>
-            <a
-              href={href}
-              aria-label={label}
-              target={href.startsWith('mailto') ? undefined : '_blank'}
-              rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-            >
+            <a href={href} aria-label={label} target="_blank" rel="noopener noreferrer">
               {icon}
             </a>
           </li>

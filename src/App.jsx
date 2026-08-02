@@ -10,28 +10,17 @@ import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
 import BackToTop from './components/BackToTop'
 import CommandPalette from './components/CommandPalette'
-import Toast from './components/Toast'
 import KonamiEasterEgg from './components/KonamiEasterEgg'
 import { useTheme } from './hooks/useTheme'
 import { useCommandPalette } from './hooks/useCommandPalette'
 import { useActiveSection } from './hooks/useActiveSection'
 import { useKonamiCode } from './hooks/useKonamiCode'
-import { useState, useRef } from 'react'
 import './App.css'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
   const { activated: konamiActivated, reset: konamiReset } = useKonamiCode()
-  const [toast, setToast] = useState(null)
-  const toastTimerRef = useRef(null)
-
-  function showToast({ message, type = 'success' }) {
-    if (toastTimerRef.current) clearTimeout(toastTimerRef.current)
-    setToast({ message, type })
-    toastTimerRef.current = setTimeout(() => setToast(null), 2000)
-  }
-
-  const palette = useCommandPalette({ toggleTheme, showToast })
+  const palette = useCommandPalette({ toggleTheme })
   const activeSection = useActiveSection(['about', 'skills', 'projects', 'experience', 'contact'])
 
   return (
@@ -50,7 +39,6 @@ function App() {
       <Footer />
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       <BackToTop />
-      <Toast message={toast?.message} type={toast?.type} />
       <CommandPalette
         isOpen={palette.isOpen}
         close={palette.close}

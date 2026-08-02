@@ -23,9 +23,9 @@ describe('useCommandPalette', () => {
     expect(result.current.filteredCommands[0].label.toLowerCase()).toContain('about')
   })
 
-  it('returns all 10 commands when query is empty', () => {
+  it('returns all 9 commands when query is empty', () => {
     const { result } = renderHook(() => useCommandPalette({ toggleTheme: () => {} }))
-    expect(result.current.filteredCommands.length).toBe(10)
+    expect(result.current.filteredCommands.length).toBe(9)
   })
 
   it('resets query and selectedIndex on open', () => {

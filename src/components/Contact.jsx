@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import RevealSection from './RevealSection'
-import CopiableText from './CopiableText'
-import CopyButton from './CopyButton'
-import { LINKS } from '../data/links'
 import './Contact.css'
 
 export default function Contact() {
@@ -44,19 +41,13 @@ export default function Contact() {
         I'm currently open to new opportunities. Whether you have a question or just want
         to say hi, I'll get back to you!
       </p>
-      <CopiableText text={LINKS.email}>
-        <div className="contact-email-row">
-          <span className="contact-email-display">{LINKS.email}</span>
-          <CopyButton ariaLabel="Copy email" />
-        </div>
-      </CopiableText>
       {status === 'sent' ? (
         <p className="contact-success" role="status">Message sent! I'll get back to you soon.</p>
       ) : (
         <form className="contact-form" onSubmit={handleSubmit} noValidate>
           {error && <p className="form-error" role="alert">{error}</p>}
           {status === 'failed' && (
-            <p className="form-error" role="alert">Something went wrong. Please try again or email me directly.</p>
+            <p className="form-error" role="alert">Something went wrong. Please try again later.</p>
           )}
           <label htmlFor="contact-name" className="sr-only">Your Name</label>
           <input

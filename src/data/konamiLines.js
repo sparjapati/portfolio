@@ -27,7 +27,6 @@ export function buildKonamiJson() {
       links: {
         github: LINKS.github,
         linkedin: LINKS.linkedin,
-        email: LINKS.email,
       },
     },
     null,
@@ -75,8 +74,7 @@ export function buildKonamiLines() {
     { text: '  ],', type: 'json' },
     { text: '  "links": {', type: 'json' },
     jsonLine('    ', `${k('"github"')}: ${str(LINKS.github)},`),
-    jsonLine('    ', `${k('"linkedin"')}: ${str(LINKS.linkedin)},`),
-    jsonLine('    ', `${k('"email"')}: ${str(LINKS.email)}`),
+    jsonLine('    ', `${k('"linkedin"')}: ${str(LINKS.linkedin)}`),
     { text: '  }', type: 'json' },
     { text: '}', type: 'json' },
   ]

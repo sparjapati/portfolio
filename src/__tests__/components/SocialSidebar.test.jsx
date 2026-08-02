@@ -13,9 +13,4 @@ describe('SocialSidebar', () => {
     render(<SocialSidebar />)
     expect(screen.getByLabelText('LinkedIn')).toHaveAttribute('href', LINKS.linkedin)
   })
-
-  it('renders email link', () => {
-    render(<SocialSidebar />)
-    expect(screen.getByLabelText('Email')).toHaveAttribute('href', `mailto:${LINKS.email}`)
-  })
 })

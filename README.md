@@ -18,7 +18,6 @@ Personal portfolio of **Sanjay Verma** — Software Engineer II at Oxyzo Financi
 - **Scroll progress bar** — thin accent bar at the top of the page
 - **Back-to-top button** — appears after scrolling 400px
 - **Command palette** — `Ctrl K` or `/` to open; search and execute nav/social commands
-- **Toast notifications** — feedback for clipboard actions
 - **Scroll reveal** — sections fade in on entry via IntersectionObserver
 - **Konami code easter egg** — `↑↑↓↓←→←→BA`
 - **Fully accessible** — semantic HTML, ARIA roles, keyboard navigation, focus traps, `prefers-reduced-motion` support
@@ -46,9 +45,10 @@ Mobile, via [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-sanjay
 | UI | React 19 |
 | Bundler | Vite 8 |
 | Styling | Pure CSS custom properties — no UI framework |
-| Testing | Vitest + @testing-library/react (99 tests) |
+| Testing | Vitest + @testing-library/react (93 tests) |
 | Linting | ESLint |
 | Deployment | Netlify |
+| Domain | Hostinger |
 
 ---
 
@@ -92,4 +92,3 @@ npm run build
 - GitHub: [@sparjapati](https://github.com/sparjapati)
 - LinkedIn: [sparjapati](https://linkedin.com/in/sparjapati)
 - X / Twitter: [@_sparjapati_](https://x.com/_sparjapati_)
-- Email: parjapatsanjay1999@gmail.com
