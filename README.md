@@ -46,7 +46,7 @@ Mobile, via [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-sanjay
 | Bundler | Vite 8 |
 | Contact form | EmailJS |
 | Styling | Pure CSS custom properties — no UI framework |
-| Testing | Vitest + @testing-library/react (93 tests) |
+| Testing | Vitest + @testing-library/react (156 tests) |
 | Linting | ESLint |
 | Deployment | Netlify |
 | Domain | Hostinger |
