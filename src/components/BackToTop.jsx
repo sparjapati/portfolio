@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useThrottle } from '../hooks/useThrottle'
 import './BackToTop.css'
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
+  const handleScroll = useThrottle(() => setVisible(window.scrollY > 400))
 
   useEffect(() => {
-    function handleScroll() {
-      setVisible(window.scrollY > 400)
-    }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [handleScroll])
 
   return (
     <button
