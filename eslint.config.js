@@ -7,12 +7,6 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/__tests__/**/*.{js,jsx}', '**/*.test.{js,jsx}', '**/*.spec.{js,jsx}'],
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.node },
-    },
-  },
-  {
     files: ['**/*.{js,jsx}'],
     extends: [
       js.configs.recommended,
@@ -30,6 +24,14 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+  // Must come after the block above: flat config merges in order, and that
+  // block re-sets `globals`, so an earlier test entry would be overridden.
+  {
+    files: ['**/__tests__/**/*.{js,jsx}', '**/*.test.{js,jsx}', '**/*.spec.{js,jsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node, ...globals.vitest },
     },
   },
 ])
