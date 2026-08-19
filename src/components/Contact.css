@@ -54,8 +54,14 @@
   color: var(--text-secondary);
 }
 
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
 .form-submit {
-  align-self: center;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   color: var(--accent);
@@ -85,4 +91,32 @@
 
 .copy-btn-label {
   line-height: 1;
+}
+
+/* Honeypot — off-screen rather than display:none, since some bots skip
+   fields that are explicitly hidden. Never shown to a real user. */
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.form-clear {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  padding: 8px 4px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.form-clear:hover {
+  color: var(--accent);
 }
